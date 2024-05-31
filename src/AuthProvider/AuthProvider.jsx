@@ -1,9 +1,8 @@
 
 
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
-import { auth } from "../firebase/firebase.init"
-import axios from "axios";
+import { auth } from '../Firebase/firebase.config'
 
 export const AuthContext = createContext(null)
 
@@ -48,29 +47,8 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             console.log('current value of the current user, ', currentUser);
-            const userEmail = currentUser?.email || user?.email;
-            const loggedUser = { email: userEmail }
-
             setUser(currentUser)
             setLoading(false)
-            // if user exits then issue token
-            if (currentUser) {
-
-                axios.post('https://volunteer-server-one.vercel.app/jwt', loggedUser, {
-                    withCredentials: true
-                })
-                    .then(res => {
-                        console.log('token reponse', res.data);
-                    })
-            }
-            else {
-                axios('https://volunteer-server-one.vercel.app/logOut', {}, {
-                    withCredentials: true
-                })
-                .then(res=>{
-                    console.log(res.data);
-                })
-            }
         });
         return () => {
             unSubscribe()
@@ -90,7 +68,6 @@ const AuthProvider = ({ children }) => {
 
     return (
         <div>
-
             <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
         </div>
     );
