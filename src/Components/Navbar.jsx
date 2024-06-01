@@ -135,7 +135,7 @@ const Navbar = () => {
                                             <NavLink className={({ isActive }) => isActive ? 'text-primary font-bold ' : 'font-bold'}>{user?.displayName}</NavLink>
                                         </li>
                                         <li>
-                                            <NavLink to='request' className={({ isActive }) => isActive ? 'text-primary font-bold ' : 'font-bold'}>Dashboard</NavLink>
+                                            <NavLink to='dashboard' className={({ isActive }) => isActive ? 'text-primary font-bold ' : 'font-bold'}>Dashboard</NavLink>
                                         </li>
 
                                         {/* <label className=" cursor-pointer grid place-items-center ">
