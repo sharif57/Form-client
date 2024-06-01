@@ -11,7 +11,7 @@ const Banner = () => {
                         <h1 className="text-white text-center xl:text-xl lg:text-xl md:text-xl sm:text-2xl xs:text-xl font-semibold bg-gray-800 p-2 bg-opacity-40 rounded-sm">Search here to get answers to your questions</h1>
                     </div>
                     <div className="w-full mx-auto">
-                        <form>
+                        <form >
                             <div className="join flex flex-row justify-center items-center mt-5">
                                 <div>
                                     <div>
