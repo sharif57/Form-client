@@ -10,6 +10,10 @@ import Register from "../Page/Register";
 import PostData from "../Page/PostData";
 import AddData from "../Page/AddData";
 import MyPost from "../Page/MyPost";
+import MyProfile from "../Page/MyProfile";
+import CardDetails from "../Page/CardDetails";
+import Comment from "../Page/Comment";
+import Announcement from "../Components/Dashboard/Announcement";
 
 export const router = createBrowserRouter([
   {
@@ -32,7 +36,17 @@ export const router = createBrowserRouter([
         path: '/post',
         element: <PostData></PostData>,
         loader: () => fetch('http://localhost:5000/post')
-      }
+      },
+      {
+        path: '/card/:id',
+        element: <CardDetails></CardDetails>,
+        loader: ({ params }) => fetch(`http://localhost:5000/posts/${params.id}`)
+      },
+      {
+        path: '/comment/:id',
+        element: <Comment></Comment>,
+        loader: ({ params }) => fetch(`http://localhost:5000/comment/${params.id}`)
+      },
     ]
   },
   {
@@ -41,18 +55,28 @@ export const router = createBrowserRouter([
     children: [
       // user related
       {
-        path:"addData",
-        element:<AddData></AddData>
+        path: "addData",
+        element: <AddData></AddData>
       },
       {
         path: 'myPost',
         element: <MyPost></MyPost>
       },
+      {
+        path: 'myProfile',
+        element: <MyProfile></MyProfile>
+      },
+
+
 
       //admin related
       {
         path: 'manageUsers',
         element: <ManageUser></ManageUser>
+      },
+      {
+        path: 'announcement',
+        element: <Announcement></Announcement>
       }
     ]
   }

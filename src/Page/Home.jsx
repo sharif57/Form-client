@@ -6,6 +6,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <PostData></PostData>
+            {/* <Shread></Shread> */}
         </div>
     );
 };

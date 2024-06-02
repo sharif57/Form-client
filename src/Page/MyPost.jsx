@@ -32,7 +32,7 @@ const MyPost = () => {
         })
             .then((result) => {
                 if (result.isConfirmed) {
-                    fetch(`https://art-and-craft-store-server-lyart.vercel.app/items/${id}`, {
+                    fetch(`http://localhost:5000/post/${id}`, {
                         method: 'DELETE'
                     })
                         .then(res => res.json())
