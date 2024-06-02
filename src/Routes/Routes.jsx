@@ -14,6 +14,7 @@ import MyProfile from "../Page/MyProfile";
 import CardDetails from "../Page/CardDetails";
 import Comment from "../Page/Comment";
 import Announcement from "../Components/Dashboard/Announcement";
+import AllAnnouncement from "../Components/Dashboard/AllAnnouncement";
 
 export const router = createBrowserRouter([
   {
@@ -65,6 +66,10 @@ export const router = createBrowserRouter([
       {
         path: 'myProfile',
         element: <MyProfile></MyProfile>
+      },
+      {
+        path: 'announcement',
+        element: <AllAnnouncement></AllAnnouncement>
       },
 
 

@@ -98,7 +98,7 @@ const Navbar = () => {
 
                         </li>
                         <li>
-                            <NavLink to='/allVolunteer' className={({ isActive }) => isActive ? 'text-primary font-bold ' : 'font-bold'}><IoMdNotifications className="size-8 text-yellow-500" />
+                            <NavLink to='/announcement' className={({ isActive }) => isActive ? 'text-primary font-bold ' : 'font-bold'}><IoMdNotifications className="size-8 text-yellow-500" />
                             </NavLink>
                         </li>
                         {
