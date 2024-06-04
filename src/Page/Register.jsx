@@ -145,8 +145,20 @@ const Register = () => {
     const navigate = useNavigate()
 
     const handleGoogleLogin = () => {
-        navigate(location?.state ? location.state : '/')
+        // navigate(location?.state ? location.state : '/')
         googleLogin()
+        .then(result =>{
+            console.log(result.user);
+            const userInfo = {
+                email: result.user?.email,
+                name: result.user?.displayName
+            }
+            axiosPublic.post('/users', userInfo)
+            .then(res => {
+                console.log(res.data);
+                navigate('/')
+            })
+        })
     }
 
     const onSubmit = (data) => {

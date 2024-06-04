@@ -10,7 +10,7 @@ const AllAnnouncement = () => {
             .then((data) => setAnnouncements(data));
     }, []);
     return (
-        <div className="grid lg:grid-cols-2 grid-cols-1 gap-5 ">
+        <div className="grid lg:grid-cols-2 grid-cols-1 gap-5 pt-14">
             {
                 announcements.map(announcement => <div key={announcement._id} className="relative  rounded-lg border border-gray-200 ">
 

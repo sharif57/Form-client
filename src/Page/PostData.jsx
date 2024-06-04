@@ -110,7 +110,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 
 const PostData = () => {
   const items = useLoaderData();
-  console.log('all items', items);
+  // console.log('all items', items);
   const { user } = useContext(AuthContext);
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);

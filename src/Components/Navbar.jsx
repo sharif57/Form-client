@@ -88,7 +88,7 @@ const Navbar = () => {
     // }
     return (
         <div>
-            <div className="navbar bg-base-100 ">
+            <div className="navbar bg-base-100   fixed z-10 bg-opacity-30 max-w-screen-xl">
                 <div className="flex-1">
                     <Link to={'/'} className="btn btn-ghost lg:text-xl text-3xl font-bold text-primary"><img src="https://demo.egenslab.com/html/docbase/assets/images/logo-2.png" alt="" /></Link>
                 </div>

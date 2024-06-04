@@ -46,7 +46,7 @@ export const router = createBrowserRouter([
       {
         path: '/comment/:id',
         element: <Comment></Comment>,
-        loader: ({ params }) => fetch(`http://localhost:5000/comment/${params.id}`)
+        // loader: ({ params }) => fetch(`http://localhost:5000/comment/${params.id}`)
       },
       {
         path: 'announcement',

@@ -6,10 +6,10 @@ const MyProfile = () => {
     const { user } = useContext(AuthContext)
 
     useEffect(() => {
-        fetch('http://localhost:5000/post')
+        fetch(`http://localhost:5000/post/${user?.email}`)
             .then(res => res.json())
             .then(data => setPosts(data))
-    }, [])
+    }, [user])
     return (
         <div>
             <div className="flex flex-col justify-center w-1/2 mx-auto p-6 shadow-md rounded-xl sm:px-12 dark:bg-gray-50 dark:text-gray-800">
