@@ -135,7 +135,7 @@ import { FaBookBible } from "react-icons/fa6";
 const Dashboard = () => {
     // const [cart] = UseCart()
 
-    const isAdmin = true;
+    const isAdmin = false;
     // const [isAdmin] = useAdmin();
     console.log(isAdmin);
 
@@ -159,9 +159,9 @@ const Dashboard = () => {
                             </li>
                             <li>
 
-                                <NavLink to={'/dashboard/announcement'}><FaAd></FaAd> Announcement</NavLink>
+                                <NavLink to={'/dashboard/announcementPost'}><FaAd></FaAd> Announcement</NavLink>
                             </li>
-                   
+
                         </>
 
                             :
@@ -178,14 +178,6 @@ const Dashboard = () => {
                                 <li>
 
                                     <NavLink to={'/dashboard/myPost'}><FaShoppingCart></FaShoppingCart> My Posts </NavLink>
-                                </li>
-                                <li>
-
-                                    <NavLink to={'/dashboard/review'}><FaAd></FaAd> Add Review</NavLink>
-                                </li>
-                                <li>
-
-                                    <NavLink to={'/dashboard/paymentHistory'}><FaList></FaList> Payment Real History</NavLink>
                                 </li>
                             </>
                     }

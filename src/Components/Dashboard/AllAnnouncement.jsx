@@ -12,7 +12,7 @@ const AllAnnouncement = () => {
     return (
         <div className="grid lg:grid-cols-2 grid-cols-1 gap-5 ">
             {
-                announcements.map(announcement => <div key={announcement._id} className="relative h-36 rounded-lg border border-gray-200 ">
+                announcements.map(announcement => <div key={announcement._id} className="relative  rounded-lg border border-gray-200 ">
 
 
                     <div className=" p-4">

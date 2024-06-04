@@ -54,6 +54,14 @@ import { IoMdNotifications } from "react-icons/io";
 
 const Navbar = () => {
     // const [theme, setTheme] = useState('light')
+    const [announcements, setAnnouncements] = useState([])
+    // console.log(comments);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/announcement')
+            .then((res) => res.json())
+            .then((data) => setAnnouncements(data));
+    }, []);
 
     const { user, logOut } = useContext(AuthContext)
 
@@ -98,7 +106,11 @@ const Navbar = () => {
 
                         </li>
                         <li>
-                            <NavLink to='/announcement' className={({ isActive }) => isActive ? 'text-primary font-bold ' : 'font-bold'}><IoMdNotifications className="size-8 text-yellow-500" />
+                            <NavLink to='/announcement' className={({ isActive }) => isActive ? 'text-primary font-bold ' : 'font-bold'} >
+                                <div className="indicator">
+                                    <span className="indicator-item badge badge-secondary">{announcements.length}</span>
+                                    <IoMdNotifications className="size-8 text-yellow-500" />
+                                </div>
                             </NavLink>
                         </li>
                         {

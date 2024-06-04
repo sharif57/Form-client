@@ -81,13 +81,13 @@ const MyProfile = () => {
                                         {post.title}
                                     </h3>
 
-                                    <p className="mt-1 text-xs font-medium text-gray-600">{user.displayName}</p>
+                                    <p className="mt-1 text-xs font-medium text-gray-600">{user?.displayName}</p>
                                 </div>
 
                                 <div className="hidden sm:block sm:shrink-0">
                                     <img
                                         alt=""
-                                        src={user.photoURL}
+                                        src={user?.photoURL}
                                         className="size-16 rounded-lg object-cover shadow-sm"
                                     />
 

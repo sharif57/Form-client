@@ -48,6 +48,10 @@ export const router = createBrowserRouter([
         element: <Comment></Comment>,
         loader: ({ params }) => fetch(`http://localhost:5000/comment/${params.id}`)
       },
+      {
+        path: 'announcement',
+        element: <AllAnnouncement></AllAnnouncement>
+      },
     ]
   },
   {
@@ -67,10 +71,7 @@ export const router = createBrowserRouter([
         path: 'myProfile',
         element: <MyProfile></MyProfile>
       },
-      {
-        path: 'announcement',
-        element: <AllAnnouncement></AllAnnouncement>
-      },
+
 
 
 
@@ -80,7 +81,7 @@ export const router = createBrowserRouter([
         element: <ManageUser></ManageUser>
       },
       {
-        path: 'announcement',
+        path: 'announcementPost',
         element: <Announcement></Announcement>
       }
     ]
