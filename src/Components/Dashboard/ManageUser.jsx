@@ -1,22 +1,52 @@
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { FaSearch } from "react-icons/fa";
-import { FaManatSign } from "react-icons/fa6";
 import { RiAdminFill } from "react-icons/ri";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const ManageUser = () => {
-    const [users, setUsers] = useState([])
-    const [names, setNames] = useState([]);
-    useEffect(() => {
-        fetch('http://localhost:5000/users')
-            .then((res) => res.json())
-            .then((data) => setUsers(data));
-    }, []);
+    // const { user } = useContext(AuthContext)
+    // const [users, setUsers] = useState([])
+    // const [names, setNames] = useState([]);
+    // const [name, setName] = useState([]);
+    const axiosSecure = useAxiosSecure()
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/users')
+    //         .then((res) => res.json())
+    //         .then((data) => setUsers(data));
+    // }, []);
+    const { data: users = [], refetch } = useQuery({
+        queryKey: ['users'],
+        queryFn: async () => {
+            const res = await axiosSecure.get('/users')
+            return res.data
+        }
+    })
 
-    const handleSearch = (e) => {
-        e.preventDefault();
-        const foodName = e.target.search.value.toLowerCase();
-        const result = names.filter(food => food.name.toLowerCase() === foodName);
-        setNames(result);
+    // const handleSearch = (e) => {
+    //     e.preventDefault();
+    //     const userName = e.target.search.value.toLowerCase();
+    //     const result = name.filter(food => food.name.toLowerCase() === userName);
+    //     setUsers(result);
+    //     console.log(userName);
+    // }
+
+    const handleMakeAdmin = user => {
+        axiosSecure.patch(`/users/admin/${user._id}`)
+            .then(res => {
+                console.log(res.data);
+                if (res.data.modifiedCount > 0) {
+                    refetch()
+                    Swal.fire({
+                        position: "top-center",
+                        icon: "success",
+                        title: `${user.name} is an Admin Now!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
     }
 
     return (
@@ -27,11 +57,11 @@ const ManageUser = () => {
 
                 </div>
                 <div className="">
-                    <form  onSubmit={handleSearch}>
+                    <form  >
                         <div className="join flex flex-row justify-center items-center mt-5">
                             <div>
                                 <div>
-                                    <input className="input input-bordered join-item h-16 border-2 lg:w-96" placeholder="Search Your User Name...." />
+                                    <input name="search" className="input input-bordered join-item h-16 border-2 lg:w-96" placeholder="Search Your User Name...." />
                                 </div>
                             </div>
                             <div className="indicator">
@@ -60,7 +90,10 @@ const ManageUser = () => {
                                     <th>{index + 1}</th>
                                     <td>{user.name}</td>
                                     <td>{user.email}</td>
-                                    <td><RiAdminFill className="size-8" /></td>
+                                    <td >
+                                       {user.role === 'admin' ? 'Admin' : <button onClick={() => handleMakeAdmin(user)}><RiAdminFill className="size-8" />
+                                        </button>}
+                                    </td>
                                     <td>status</td>
                                 </tr>)
                             }

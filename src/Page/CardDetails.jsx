@@ -1,22 +1,26 @@
-import { useContext} from "react";
+import { useContext } from "react";
 import { AiFillDislike, AiFillLike } from "react-icons/ai";
-import { FaLocationArrow, FaRegCommentDots, FaShare} from "react-icons/fa";
-import { useLoaderData } from "react-router-dom";
+import { FaLocationArrow, FaRegCommentDots, FaShare } from "react-icons/fa";
+import { useLoaderData, useParams } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import Comment from "./Comment";
 
 const CardDetails = () => {
+    const params = useParams();
     const { user } = useContext(AuthContext)
-    
+
+
 
     const handlePost = (e) => {
         e.preventDefault()
         const form = e.target;
         const email = user.email;
+        const image = user.photoURL;
+        const name = user.displayName;
         const comment = form.comment.value;
 
-        const newUser = { email, comment }
+        const newUser = { email, image, name,comment, postId: params.id }
         console.log(newUser);
 
         fetch('http://localhost:5000/comment', {
@@ -42,7 +46,9 @@ const CardDetails = () => {
     }
 
     const items = useLoaderData()
-    // console.log('all data', items);
+    console.log('all data', items);
+
+
     return (
         <div className="pt-12">
             <a
@@ -105,14 +111,14 @@ const CardDetails = () => {
                             
                         </button> */}
                         {/* Open the modal using document.getElementById('ID').showModal() method */}
-                        <button className="btn" onClick={() => document.getElementById('my_modal_1').showModal()}><FaRegCommentDots className="size-7" /></button>
+                        <button className="btn" type="button" onClick={() => document.getElementById('my_modal_1').showModal()}><FaRegCommentDots className="size-7" /></button>
                         <dialog id="my_modal_1" className="modal">
                             <div className="modal-box">
                                 <h3 className="font-bold text-lg">Hello!</h3>
                                 <p className="py-4">Press ESC key or click the button below to close</p>
                                 <div>
                                     <form onSubmit={handlePost}>
-                                        {/* <input type="text"  placeholder="Type here" className="input input-bordered input-warning w-full max-w-xs" /> */}
+
                                         <div className="join flex flex-row justify-center items-center mt-5">
                                             <div>
                                                 <div>
@@ -120,27 +126,27 @@ const CardDetails = () => {
                                                 </div>
                                             </div>
                                             <div className="indicator">
-                                                <button className="btn join-item h-16 bg-blue-500 w-16"><FaLocationArrow  className="size-6"/></button>
+                                                <button className="btn join-item h-16 bg-blue-500 w-16"><FaLocationArrow className="size-6" /></button>
+                                            </div>
                                         </div>
+                                    </form>
                                 </div>
-                            </form>
-                    </div>
-                    <div className="modal-action">
-                        <form method="dialog">
+                                <div className="modal-action">
+                                    <form method="dialog">
 
-                            {/* if there is a button in form, it will close the modal */}
-                            <button className="btn">Close</button>
-                        </form>
+                                        {/* if there is a button in form, it will close the modal */}
+                                        <button className="btn">Close</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </dialog>
+                        <button>
+                            <FaShare className="size-7" />
+                        </button>
                     </div>
-                </div>
-            </dialog>
-            <button>
-                <FaShare className="size-7" />
-            </button>
-        </div>
                 </div >
             </a >
-            <Comment></Comment>
+            <Comment postId={items._id}></Comment>
         </div >
     );
 };

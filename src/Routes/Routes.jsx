@@ -15,6 +15,8 @@ import CardDetails from "../Page/CardDetails";
 import Comment from "../Page/Comment";
 import Announcement from "../Components/Dashboard/Announcement";
 import AllAnnouncement from "../Components/Dashboard/AllAnnouncement";
+import UserAllComment from "../Page/UserAllComment";
+import ReportedComment from "../Components/Dashboard/ReportedComment";
 
 export const router = createBrowserRouter([
   {
@@ -44,9 +46,9 @@ export const router = createBrowserRouter([
         loader: ({ params }) => fetch(`http://localhost:5000/posts/${params.id}`)
       },
       {
-        path: '/comment/:id',
+        path: '/comment/:postId',
         element: <Comment></Comment>,
-        // loader: ({ params }) => fetch(`http://localhost:5000/comment/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/comments/${params.postId}`)
       },
       {
         path: 'announcement',
@@ -71,6 +73,13 @@ export const router = createBrowserRouter([
         path: 'myProfile',
         element: <MyProfile></MyProfile>
       },
+      {
+        path: 'allComments/:postId',
+        element: <UserAllComment></UserAllComment>,
+        loader: ({ params }) => fetch(`http://localhost:5000/comments/${params.postId}`)
+      }
+      
+      ,
 
 
 
@@ -83,6 +92,10 @@ export const router = createBrowserRouter([
       {
         path: 'announcementPost',
         element: <Announcement></Announcement>
+      },
+      {
+        path: 'reported',
+        element: <ReportedComment></ReportedComment>
       }
     ]
   }

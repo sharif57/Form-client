@@ -60,7 +60,7 @@ const AddData = () => {
     ]
     return (
         <div>
-            <h1>add data</h1>
+            {/* <h1>add data</h1> */}
 
             <div className="font-Roboto mt-8 p-6 bg-gray-300 rounded-lg shadow-md">
                 <h2 className="text-2xl text-center font-bold mb-4">Add Your Post</h2>

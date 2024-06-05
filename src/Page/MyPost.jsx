@@ -3,6 +3,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import { MdDelete } from "react-icons/md";
 import { FaComment } from "react-icons/fa6";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MyPost = () => {
     const { user } = useContext(AuthContext)
@@ -77,7 +78,7 @@ const MyPost = () => {
                                 <th>{index + 1}</th>
                                 <td>{item.title}</td>
                                 <td>Quality Control Specialist</td>
-                                <td><FaComment className="size-8"></FaComment></td>
+                                <td><Link to={`/dashboard/allComments/${item.postId}`}><FaComment className="size-8"></FaComment></Link></td>
                                 <button onClick={() => handleDelete(item._id)}><MdDelete className="size-8" /></button>
                             </tr>)
                         }
