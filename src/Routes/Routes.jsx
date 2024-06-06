@@ -17,6 +17,7 @@ import Announcement from "../Components/Dashboard/Announcement";
 import AllAnnouncement from "../Components/Dashboard/AllAnnouncement";
 import UserAllComment from "../Page/UserAllComment";
 import ReportedComment from "../Components/Dashboard/ReportedComment";
+import AdminProfile from "../Components/Dashboard/AdminProfile";
 
 export const router = createBrowserRouter([
   {
@@ -85,6 +86,10 @@ export const router = createBrowserRouter([
 
 
       //admin related
+      {
+        path: 'adminProfile',
+        element: <AdminProfile></AdminProfile>
+      },
       {
         path: 'manageUsers',
         element: <ManageUser></ManageUser>
