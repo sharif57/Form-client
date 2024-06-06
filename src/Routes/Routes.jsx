@@ -18,6 +18,7 @@ import AllAnnouncement from "../Components/Dashboard/AllAnnouncement";
 import UserAllComment from "../Page/UserAllComment";
 import ReportedComment from "../Components/Dashboard/ReportedComment";
 import AdminProfile from "../Components/Dashboard/AdminProfile";
+import Membership from "../Components/Dashboard/Membership";
 
 export const router = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ export const router = createBrowserRouter([
         path: 'announcement',
         element: <AllAnnouncement></AllAnnouncement>
       },
+      {
+        path: 'membership',
+        element: <Membership></Membership>
+      }
     ]
   },
   {
@@ -72,7 +77,8 @@ export const router = createBrowserRouter([
       },
       {
         path: 'myProfile',
-        element: <MyProfile></MyProfile>
+        element: <MyProfile></MyProfile>,
+
       },
       {
         path: 'allComments/:postId',
@@ -101,7 +107,8 @@ export const router = createBrowserRouter([
       {
         path: 'reported',
         element: <ReportedComment></ReportedComment>
-      }
+      },
+      
     ]
   }
 ]);

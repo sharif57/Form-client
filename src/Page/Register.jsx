@@ -147,18 +147,18 @@ const Register = () => {
     const handleGoogleLogin = () => {
         // navigate(location?.state ? location.state : '/')
         googleLogin()
-        .then(result =>{
-            console.log(result.user);
-            const userInfo = {
-                email: result.user?.email,
-                name: result.user?.displayName
-            }
-            axiosPublic.post('/users', userInfo)
-            .then(res => {
-                console.log(res.data);
-                navigate('/')
+            .then(result => {
+                console.log(result.user);
+                const userInfo = {
+                    email: result.user?.email,
+                    name: result.user?.displayName
+                }
+                axiosPublic.post('/users', userInfo)
+                    .then(res => {
+                        console.log(res.data);
+                        navigate('/')
+                    })
             })
-        })
     }
 
     const onSubmit = (data) => {
@@ -195,14 +195,12 @@ const Register = () => {
     }
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold">SignUp now!</h1>
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                    </div>
-                    <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <div className="  ">
+                <div className=" w-full font-Roboto max-w-md mx-auto p-4 rounded-md shadow-2xl mt-4   dark:text-gray-800 ">
+
+                    <div className="card   shadow-2xl bg-base-100">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+                            <h2 className="mb-3 text-3xl font-semibold text-center bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text animate-gradient">Sign Up</h2>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>

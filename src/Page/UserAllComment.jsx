@@ -143,7 +143,6 @@ const UserAllComment = () => {
 
     return (
         <div>
-            <h1>hello bangladesh {items.length}</h1>
             <div className="overflow-x-auto">
                 <table className="table table-zebra">
                     {/* head */}
@@ -153,7 +152,7 @@ const UserAllComment = () => {
                             <th>Email</th>
                             <th>Comment</th>
                             <th>Feedback</th>
-                            <th>Report</th>
+                            {/* <th>Report</th> */}
                         </tr>
                     </thead>
                     <tbody>

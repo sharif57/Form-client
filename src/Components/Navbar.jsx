@@ -102,7 +102,7 @@ const Navbar = () => {
                         </li>
 
                         <li>
-                            <NavLink to='/allVolunteer' className={({ isActive }) => isActive ? 'text-primary font-bold ' : 'font-bold'}>Membership</NavLink>
+                            <NavLink to='/membership' className={({ isActive }) => isActive ? 'text-primary font-bold ' : 'font-bold'}>Membership</NavLink>
 
                         </li>
                         <li>

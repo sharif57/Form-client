@@ -11,7 +11,7 @@ const MyPost = () => {
 
     const [detele, setDelete] = useState([])
 
-    console.log(items.length);
+    console.log(items);
 
     useEffect(() => {
         fetch(`http://localhost:5000/post/${user?.email}`)
@@ -78,7 +78,7 @@ const MyPost = () => {
                                 <th>{index + 1}</th>
                                 <td>{item.title}</td>
                                 <td>Quality Control Specialist</td>
-                                <td><Link to={`/dashboard/allComments/${item.postId}`}><FaComment className="size-8"></FaComment></Link></td>
+                                <td><Link to={`/dashboard/allComments/${item._id}`}><FaComment className="size-8"></FaComment></Link></td>
                                 <button onClick={() => handleDelete(item._id)}><MdDelete className="size-8" /></button>
                             </tr>)
                         }

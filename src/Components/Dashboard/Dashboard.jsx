@@ -1,16 +1,27 @@
 
 
-import { FaAd, FaCalendar, FaHome,  FaPhone, FaShoppingCart, FaSignOutAlt, } from "react-icons/fa";
+import { FaCalendar, FaHome,   FaShoppingCart, FaSignOutAlt, } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import UseAdmin from "../../hooks/UseAdmin";
-// import UseCart from "../Hooks/UseCart";
-// import useAdmin from "../Hooks/useAdmin";
+import { BiUser } from "react-icons/bi";
+import { GoReport } from "react-icons/go";
+import { IoMdNotifications } from "react-icons/io";
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+
 
 const Dashboard = () => {
-    // const [cart] = UseCart()
+    const {  logOut } = useContext(AuthContext)
 
-    const isAdmin = true;
-    // const [isAdmin] = UseAdmin();
+    const handleLogOut = () => {
+        logOut()
+            .then(() => console.log('logout successfully'))
+            .catch(error => console.error(error))
+
+    }
+
+    // const isAdmin = true;
+    const [isAdmin] = UseAdmin();
     console.log(isAdmin);
 
     return (
@@ -21,19 +32,19 @@ const Dashboard = () => {
                         isAdmin ? <>
                             <li>
 
-                                <NavLink to={'/dashboard/adminProfile'}><FaHome></FaHome>Admin Profile</NavLink>
+                                <NavLink to={'/dashboard/adminProfile'}><FaHome className="size-8 "></FaHome>Admin Profile</NavLink>
                             </li>
                             <li>
 
-                                <NavLink to={'/dashboard/manageUsers'}><FaCalendar></FaCalendar>Manage Users</NavLink>
+                                <NavLink to={'/dashboard/manageUsers'}><BiUser className="size-8 "></BiUser>Manage Users</NavLink>
                             </li>
                             <li>
 
-                                <NavLink to={'/dashboard/reported'}><FaShoppingCart></FaShoppingCart> Reported Comments </NavLink>
+                                <NavLink to={'/dashboard/reported'}><GoReport className="size-8 "></GoReport> Reported Comments </NavLink>
                             </li>
                             <li>
 
-                                <NavLink to={'/dashboard/announcementPost'}><FaAd></FaAd> Announcement</NavLink>
+                                <NavLink to={'/dashboard/announcementPost'}><IoMdNotifications className="size-8 text-yellow-500" /> Announcement</NavLink>
                             </li>
 
                         </>
@@ -61,16 +72,13 @@ const Dashboard = () => {
                     <div className="divider">OR</div>
                     <li>
 
-                        <NavLink to={'/'}><FaHome></FaHome>Home</NavLink>
+                        <NavLink to={'/'}><FaHome className="size-8 "></FaHome>Home</NavLink>
                     </li>
                     <li>
 
-                        <NavLink to={'/'}><FaSignOutAlt></FaSignOutAlt>Log Out</NavLink>
+                        <NavLink to={'/'}><FaSignOutAlt className="size-8 "></FaSignOutAlt> <button onClick={handleLogOut}>Log Out</button></NavLink>
                     </li>
-                    <li>
-
-                        <NavLink to={'/order/contact'}><FaPhone></FaPhone>Contact</NavLink>
-                    </li>
+       
                 </ul>
             </div>
             <div className="flex-1 p-8">

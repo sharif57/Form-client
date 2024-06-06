@@ -102,19 +102,22 @@
 
 // export default PostData;
 
-import React, { useState, useEffect, useContext } from 'react';
+import  { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
-import { AiFillDislike, AiFillLike } from 'react-icons/ai';
-import { FaRegCommentDots, FaShare } from 'react-icons/fa';
+import { FaRegCommentDots } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
+import {  BiDownvote, BiUpvote } from 'react-icons/bi';
+import { SlShare } from 'react-icons/sl';
 
-const PostData = () => {
+const PostData = ({postId}) => {
   const items = useLoaderData();
   // console.log('all items', items);
   const { user } = useContext(AuthContext);
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 5;
+
+  
 
   useEffect(() => {
     fetch('http://localhost:5000/post')
@@ -195,26 +198,18 @@ const PostData = () => {
                 </div>
               </div>
             </div>
-            {/* <div className="flex gap-4 items-center mt-6 justify-between">
-              <div className="flex gap-4 items-center mt-6">
-                <button className="flex items-start justify-center">
-                  <AiFillLike className="size-7" />
-                  {post.upVote}
-                </button>
-                <button className="flex items-start justify-center">
-                  <AiFillDislike className="size-7" />
-                  {post.downVote}
-                </button>
-              </div>
-              <div className="flex gap-4 items-center mt-6">
-                <button className="flex items-start justify-center gap-2">
-                  <FaRegCommentDots className="size-7" />
-                </button>
-                <button>
-                  <FaShare className="size-7" />
-                </button>
-              </div>
-            </div> */}
+
+          <div className='flex justify-between items-center mt-6'>
+            <div className='flex gap-5'>
+              <BiUpvote className="size-7"></BiUpvote>
+              <BiDownvote className="size-7"></BiDownvote>
+            </div>
+            <div className='flex gap-5'>
+              <FaRegCommentDots className="size-7"></FaRegCommentDots><h1>0</h1>
+              <SlShare className="size-7"></SlShare>
+            </div>
+          </div>
+          
             <Link to={`/card/${post._id}`} className='btn btn-outline w-full mt-4'>Post Details</Link>
           </article>
         ))}
