@@ -8,6 +8,9 @@ import { GoReport } from "react-icons/go";
 import { IoMdNotifications } from "react-icons/io";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { CgProfile } from "react-icons/cg";
+import { BsPostcard } from "react-icons/bs";
+import { MdPostAdd } from "react-icons/md";
 
 
 const Dashboard = () => {
@@ -54,15 +57,15 @@ const Dashboard = () => {
                             <>
                                 <li>
 
-                                    <NavLink to={'/dashboard/myProfile'}><FaHome></FaHome>My Profile</NavLink>
+                                    <NavLink to={'/dashboard/myProfile'}><CgProfile className="size-8"></CgProfile>My Profile</NavLink>
                                 </li>
                                 <li>
 
-                                    <NavLink to={'/dashboard/addData'}><FaCalendar></FaCalendar>Add Post</NavLink>
+                                    <NavLink to={'/dashboard/addData'}> <MdPostAdd className="size-8"></MdPostAdd>Add Post</NavLink>
                                 </li>
                                 <li>
 
-                                    <NavLink to={'/dashboard/myPost'}><FaShoppingCart></FaShoppingCart> My Posts </NavLink>
+                                    <NavLink to={'/dashboard/myPost'}><BsPostcard className="size-8"></BsPostcard> My Posts </NavLink>
                                 </li>
                             </>
                     }

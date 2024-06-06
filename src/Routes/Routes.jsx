@@ -19,6 +19,7 @@ import UserAllComment from "../Page/UserAllComment";
 import ReportedComment from "../Components/Dashboard/ReportedComment";
 import AdminProfile from "../Components/Dashboard/AdminProfile";
 import Membership from "../Components/Dashboard/Membership";
+import PrivateRoutes from "./PrivateRoutes";
 
 export const router = createBrowserRouter([
   {
@@ -44,7 +45,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/card/:id',
-        element: <CardDetails></CardDetails>,
+        element: <PrivateRoutes><CardDetails></CardDetails></PrivateRoutes>,
         loader: ({ params }) => fetch(`http://localhost:5000/posts/${params.id}`)
       },
       {
@@ -58,13 +59,13 @@ export const router = createBrowserRouter([
       },
       {
         path: 'membership',
-        element: <Membership></Membership>
+        element: <PrivateRoutes><Membership></Membership></PrivateRoutes>
       }
     ]
   },
   {
     path: '/dashboard',
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
     children: [
       // user related
       {

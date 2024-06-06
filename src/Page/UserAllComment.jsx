@@ -1,92 +1,4 @@
-// import { useContext, useState } from "react";
-// import { useLoaderData } from "react-router-dom";
-// import { AuthContext } from "../AuthProvider/AuthProvider";
-// const UserAllComment = () => {
-//     const {user} = useContext(AuthContext)
-//     const items = useLoaderData()
-//     // console.log(items.length);
 
-//     const [feedback, setFeedback] = useState('');
-//     const [isReported, setIsReported] = useState(false);
-
-//     const handleFeedbackChange = (event) => {
-//         setFeedback(event.target.value);
-//     };
-
-//     const handleReportClick = () => {
-//         setIsReported(true);
-//     };
-
-//     const handleReport = (e) => {
-//         e.preventDefault();
-//         const form = e.target;
-//         const select = form.select.value;
-//         const email = user.email;
-
-//         const ReportPost = {select, email}
-//         console.log(ReportPost);
-//     }
-
-//     return (
-//         <div>
-//             <h1>hello bangladesh {items.length}</h1>
-
-//             <div className="overflow-x-auto">
-//                 <table className="table table-zebra">
-//                     {/* head */}
-//                     <thead>
-//                         <tr>
-//                             <th>#</th>
-//                             <th>Email</th>
-//                             <th>Comment</th>
-//                             <th>feedback</th>
-//                             <th>Report</th>
-//                         </tr>
-//                     </thead>
-//                     <tbody>
-//                         {
-//                             items.map((item, index) => <tr key={item._id}>
-//                                 <th>{index + 1}</th>
-//                                 <th>{item.email}</th>
-//                                 <td>{item.comment.slice(0, 20)}....</td>
-
-//                                 <td>
-//                                     <form onSubmit={handleReport}>
-//                                         <td >
-//                                             <select 
-//                                             name="select"
-//                                                 value={feedback}
-//                                                 onChange={handleFeedbackChange}
-//                                                 disabled={isReported}
-//                                             >
-//                                                 <option value="">Select feedback</option>
-//                                                 <option value="spam">Good</option>
-//                                                 <option value="offensive">Offensive Content</option>
-//                                                 <option value="irrelevant">Irrelevant</option>
-//                                             </select>
-//                                         </td>
-//                                         <td>
-//                                             <button
-//                                                 onClick={handleReportClick}
-//                                                 disabled={!feedback || isReported}
-//                                             >
-//                                                 {isReported ? 'Reported' : 'Report'}
-//                                             </button>
-//                                         </td>
-//                                     </form>
-//                                 </td>
-//                             </tr>)
-//                         }
-
-
-//                     </tbody>
-//                 </table>
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default UserAllComment;
 
 import { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
@@ -101,6 +13,7 @@ const UserAllComment = () => {
         feedback: '',
         isReported: false,
     })));
+    const [selectedComment, setSelectedComment] = useState(null);
 
     const handleFeedbackChange = (index, event) => {
         const newReportStates = [...reportStates];
@@ -141,6 +54,14 @@ const UserAllComment = () => {
         setReportStates(newReportStates);
     };
 
+    const openModal = (comment) => {
+        setSelectedComment(comment);
+    };
+
+    const closeModal = () => {
+        setSelectedComment(null);
+    };
+
     return (
         <div>
             <div className="overflow-x-auto">
@@ -152,7 +73,6 @@ const UserAllComment = () => {
                             <th>Email</th>
                             <th>Comment</th>
                             <th>Feedback</th>
-                            {/* <th>Report</th> */}
                         </tr>
                     </thead>
                     <tbody>
@@ -160,7 +80,9 @@ const UserAllComment = () => {
                             <tr key={item._id}>
                                 <th>{index + 1}</th>
                                 <td>{item.email}</td>
-                                <td>{item.comment.slice(0, 20)}....</td>
+                                <td>{item.comment.slice(0, 20)}....
+                                    <button className="btn" onClick={() => openModal(item.comment)}>Read More</button>
+                                </td>
                                 <td>
                                     <form onSubmit={(e) => handleReport(index, e)}>
                                         <td>
@@ -192,6 +114,17 @@ const UserAllComment = () => {
                     </tbody>
                 </table>
             </div>
+
+            {selectedComment && (
+                <dialog open className="modal">
+                    <div className="modal-box">
+                        <p className="py-4 font-bold text-lg">{selectedComment}</p>
+                        <div className="modal-action">
+                            <button className="btn" onClick={closeModal}>Close</button>
+                        </div>
+                    </div>
+                </dialog>
+            )}
         </div>
     );
 };
