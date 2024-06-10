@@ -1,12 +1,12 @@
 
 
-import { FaCalendar, FaHome,   FaShoppingCart, FaSignOutAlt, } from "react-icons/fa";
+import {  FaHome,  FaSignOutAlt, } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import UseAdmin from "../../hooks/UseAdmin";
 import { BiUser } from "react-icons/bi";
 import { GoReport } from "react-icons/go";
 import { IoMdNotifications } from "react-icons/io";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { CgProfile } from "react-icons/cg";
 import { BsPostcard } from "react-icons/bs";
@@ -15,6 +15,17 @@ import { MdPostAdd } from "react-icons/md";
 
 const Dashboard = () => {
     const {  logOut } = useContext(AuthContext)
+    const [items, setItems] = useState([]);
+    const {user} = useContext(AuthContext)
+
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/post/${user?.email}`)
+            .then(res => res.json())
+            .then(data => {
+                setItems(data);
+            });
+    }, [user]);
 
     const handleLogOut = () => {
         logOut()

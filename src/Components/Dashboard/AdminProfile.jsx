@@ -190,8 +190,8 @@ const AdminProfile = () => {
 
     return (
         <div>
-            <div className="flex justify-around items-center gap-16">
-                <div className="p-6 w-1/2 sm:p-12 dark:bg-green-100 dark:text-gray-800 shadow-2xl bg-green-100">
+            <div className="lg:flex justify-around items-center gap-16">
+                <div className="p-6 lg:w-1/2 sm:p-12 dark:bg-green-100 dark:text-gray-800 shadow-2xl bg-green-100">
                     <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
                         <img src={user?.photoURL} alt="" className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-300" />
                         <div className="flex flex-col">

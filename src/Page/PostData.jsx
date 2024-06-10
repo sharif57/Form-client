@@ -332,8 +332,8 @@ const PostData = ({ postId }) => {
   // Filter posts based on search term
   const filteredPosts = searchTerm
     ? posts.filter((post) =>
-        post.tag.toLowerCase().includes(searchTerm.toLowerCase())
-      )
+      post.tag.toLowerCase().includes(searchTerm.toLowerCase())
+    )
     : currentPosts;
 
   return (
@@ -404,9 +404,7 @@ const PostData = ({ postId }) => {
               </div>
               <div className="flex items-start sm:gap-8">
                 <div>
-                  <strong className="rounded border border-indigo-500 bg-indigo-500 px-3 py-1.5 text-[10px] font-medium text-white">
-                    {post.tag}
-                  </strong>
+
                   <h3 className="mt-4 text-lg font-medium sm:text-xl">
                     <a href="#" className="hover:underline">
                       {post.title}
@@ -414,7 +412,7 @@ const PostData = ({ postId }) => {
                   </h3>
                   <p className="mt-1 text-sm text-gray-700">{post.description}</p>
                   <div className="mt-4 sm:flex sm:items-center sm:gap-2">
-                    <div className="flex items-center gap-1 text-gray-500">
+                    {/* <div className="flex items-center gap-1 text-gray-500">
                       <svg
                         className="h-4 w-4"
                         fill="none"
@@ -429,23 +427,26 @@ const PostData = ({ postId }) => {
                           d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                         ></path>
                       </svg>
-                    </div>
-                    <span className="hidden sm:block" aria-hidden="true">
+                    </div> */}
+                    <strong className="rounded border border-indigo-500 bg-indigo-500 px-3 py-1.5 text-[10px] font-medium text-white">
+                      {post.tag}
+                    </strong>
+                    {/* <span className="hidden sm:block" aria-hidden="true">
                       &middot;
                     </span>
                     <p className="mt-2 text-xs font-medium text-gray-500 sm:mt-0">
                       Featuring <a href="#" className="underline hover:text-gray-700">Barry</a>,{' '}
                       <a href="#" className="underline hover:text-gray-700">Sandra</a> and{' '}
                       <a href="#" className="underline hover:text-gray-700">August</a>
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               </div>
 
               <div className='flex justify-between items-center mt-6'>
                 <div className='flex gap-5'>
-                  <BiUpvote className="size-7"></BiUpvote>
-                  <BiDownvote className="size-7"></BiDownvote>
+                  <BiUpvote className="size-7"></BiUpvote>{post.upVote}
+                  <BiDownvote className="size-7"></BiDownvote>{post.downVote}
                 </div>
                 <div className='flex gap-5'>
                   <FaRegCommentDots className="size-7"></FaRegCommentDots><h1>0</h1>

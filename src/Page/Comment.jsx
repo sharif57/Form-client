@@ -29,9 +29,9 @@ const Comment = ({postId}) => {
                         <p>{comment.name}</p>
                         <h1 className="text-xl font-bold">{comment.comment}</h1>
                     </div>
-                    <Link to={`/dashboard/allComments/${comment.postId}`} className="btn btn-outline">details</Link>
+                    {/* <Link to={`/dashboard/allComments/${comment.postId}`} className="btn btn-outline">details</Link> */}
                 </div>)
-            }
+            }c
         </div>
     );
 };

@@ -10,7 +10,16 @@ const MyProfile = () => {
             .then(res => res.json())
             .then(data => setPosts(data))
     }, [user])
-    
+
+    const [announcements, setAnnouncements] = useState([])
+    // console.log(comments);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/users')
+            .then((res) => res.json())
+            .then((data) => setAnnouncements(data));
+    }, []);
+
     return (
         <div>
             <div className="flex flex-col justify-center w-1/2 mx-auto p-6 shadow-md rounded-xl sm:px-12 dark:bg-gray-50 dark:text-gray-800">
@@ -19,13 +28,15 @@ const MyProfile = () => {
                 <div className="relative w-32 h-32 mx-auto">
                     <img src={user?.photoURL} alt="Profile" className="w-32 h-32 rounded-full dark:bg-gray-500 aspect-square" />
                     {/* golden badge */}
-                    {/* <img
-                        className="w-12 h-12 absolute -bottom-3 right-0"
-                        src="https://www.iconpacks.net/icons/1/free-badge-icon-1361-thumb.png"
-                        alt="Badge"
-                    /> */}
-                    {/* Bronze badge */}
-                    <img className="w-12 h-12 absolute -bottom-3 right-0" src="https://cdn.iconscout.com/icon/premium/png-256-thumb/badge-2089190-1774058.png?f=webp&w=128" alt="" />
+                    {announcements.map((announcement) => (
+                        <div key={announcement._id} className="relative">
+                            <img
+                                className="w-12 h-12 absolute -bottom-3 right-0"
+                                src={announcement.golden ? announcement.golden : 'https://image.shutterstock.com/image-vector/silver-medal-blue-ribbon-badge-260nw-2370218391.jpg'}
+                            />
+                        </div>
+                    ))}
+
                 </div>
 
                 <div className="space-y-4 text-center divide-y dark:divide-gray-300">

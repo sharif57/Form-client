@@ -38,7 +38,7 @@ const Announcement = () => {
     }
     return (
         <div>
-            <div className="mx-auto px-4 w-1/2 py-16 sm:px-6 lg:px-8">
+            <div className="mx-auto px-4 lg:w-1/2 py-16 sm:px-6 lg:px-8">
                 <div className="mx-auto ">
                     <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">Make Announcement</h1>
 

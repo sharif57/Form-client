@@ -20,11 +20,14 @@ import ReportedComment from "../Components/Dashboard/ReportedComment";
 import AdminProfile from "../Components/Dashboard/AdminProfile";
 import Membership from "../Components/Dashboard/Membership";
 import PrivateRoutes from "./PrivateRoutes";
+import Error from "../Page/Error";
+import AdminRoute from "./AdminRoute";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: '/',
@@ -86,7 +89,7 @@ export const router = createBrowserRouter([
         element: <UserAllComment></UserAllComment>,
         loader: ({ params }) => fetch(`http://localhost:5000/comments/${params.postId}`)
       }
-      
+
       ,
 
 
@@ -95,21 +98,21 @@ export const router = createBrowserRouter([
       //admin related
       {
         path: 'adminProfile',
-        element: <AdminProfile></AdminProfile>
+        element: <AdminRoute><AdminProfile></AdminProfile></AdminRoute>
       },
       {
         path: 'manageUsers',
-        element: <ManageUser></ManageUser>
+        element: <AdminRoute><ManageUser></ManageUser></AdminRoute>
       },
       {
         path: 'announcementPost',
-        element: <Announcement></Announcement>
+        element: <AdminRoute><Announcement></Announcement></AdminRoute>
       },
       {
         path: 'reported',
-        element: <ReportedComment></ReportedComment>
+        element: <AdminRoute><ReportedComment></ReportedComment></AdminRoute>
       },
-      
+
     ]
   }
 ]);

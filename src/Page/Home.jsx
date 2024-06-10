@@ -1,4 +1,5 @@
 // import Banner from "../Components/Banner";
+import Call from "./Call";
 import PostData from "./PostData";
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
             {/* <Banner></Banner> */}
             <PostData></PostData>
             {/* <Shread></Shread> */}
+            <Call></Call>
         </div>
     );
 };
