@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 
 const AllAnnouncement = () => {
+    useEffect(() => {
+        document.title = 'AllAnnouncement'
+    }, [])
     const [announcements, setAnnouncements] = useState([])
     // console.log(comments);
 

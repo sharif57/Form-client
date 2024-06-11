@@ -12,7 +12,6 @@ const AddData = () => {
 
     useEffect(() => {
         if (user) {
-            // Fetch the user's current post count from the server
             fetch(`http://localhost:5000/post/count/${user.email}`)
                 .then(res => res.json())
                 .then(data => {
@@ -167,8 +166,7 @@ const AddData = () => {
                             name="upVote"
                             className="mt-1 p-2.5 border-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                             defaultValue={0}
-                            min={0}
-                            disabled
+                            min={0} disabled
                         />
                     </div>
 
@@ -192,7 +190,7 @@ const AddData = () => {
                             name="commentsCount"
                             className="mt-1 p-2.5 border-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                             defaultValue={0}
-                            min={0}
+                            min={0} disabled
                         />
                     </div>
 
@@ -221,3 +219,6 @@ const AddData = () => {
 };
 
 export default AddData;
+
+
+

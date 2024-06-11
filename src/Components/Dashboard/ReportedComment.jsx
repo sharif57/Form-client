@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { FaBan } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const ReportedComment = () => {
+    useEffect(() => {
+        document.title = 'Report Comment'
+    }, [])
     const axiosSecure = useAxiosSecure();
     const [currentPage, setCurrentPage] = useState(1);
     const reportsPerPage = 10;

@@ -1,10 +1,13 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Announcement = () => {
+    useEffect(() => {
+        document.title = 'Announcement'
+    }, [])
     const { user } = useContext(AuthContext)
-    const handlePost = (e) => {
+    const handlePost = (e) => {c
         e.preventDefault()
         const form = e.target;
         const name = form.name.value;

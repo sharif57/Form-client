@@ -132,7 +132,7 @@
 
 // export default AdminProfile;
 
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { PieChart, Pie, Cell, Legend, ResponsiveContainer } from 'recharts';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
@@ -140,6 +140,9 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { EmailIcon, FacebookIcon, TwitterIcon } from 'react-share';
 
 const AdminProfile = () => {
+    useEffect(() => {
+        document.title = 'Admin Profile'
+    }, [])
     const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
     const RADIAN = Math.PI / 180;
 

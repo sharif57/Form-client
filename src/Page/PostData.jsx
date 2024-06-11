@@ -294,6 +294,7 @@ import { BiDownvote, BiUpvote } from 'react-icons/bi';
 import { SlShare } from 'react-icons/sl';
 
 const PostData = ({ postId }) => {
+  
   const items = useLoaderData();
   const { user } = useContext(AuthContext);
   const [posts, setPosts] = useState([]);
@@ -341,7 +342,7 @@ const PostData = ({ postId }) => {
       <section className="w-full">
         <div className="w-full h-[520px] bg-[url('https://wordpress-theme.spider-themes.net/docy2/wp-content/uploads/2021/10/wallpaperflare.com_wallpaper-3.jpg')] bg-cover bg-no-repeat bg-center flex flex-col justify-center items-center">
           <div>
-            <h1 className="text-white text-center xl:text-5xl lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl font-semibold bg-gray-800 p-2 bg-opacity-40 rounded-sm">Welcome to Our Forum</h1>
+            <h1 className="text-white text-center xl:text-5xl lg:text-4xl md:text-3xl sm:text-4xl xs:text-xl font-semibold bg-gray-800 p-2 bg-opacity-40 rounded-sm">Welcome to Our Forum</h1>
             <h1 className="text-white text-center xl:text-xl lg:text-xl md:text-xl sm:text-2xl xs:text-xl font-semibold bg-gray-800 p-2 bg-opacity-40 rounded-sm">Search here to get answers to your questions</h1>
           </div>
           <div className="w-full mx-auto">
@@ -449,7 +450,7 @@ const PostData = ({ postId }) => {
                   <BiDownvote className="size-7"></BiDownvote>{post.downVote}
                 </div>
                 <div className='flex gap-5'>
-                  <FaRegCommentDots className="size-7"></FaRegCommentDots><h1>0</h1>
+                  <FaRegCommentDots className="size-7"></FaRegCommentDots>
                   <SlShare className="size-7"></SlShare>
                 </div>
               </div>

@@ -46,7 +46,7 @@ const Navbar = () => {
     // }
     return (
         // <div>
-        //     <div className="navbar bg-base-100   fixed z-10 bg-opacity-30 max-w-screen-xl">
+        //     <div className="navbar">
         //         <div className="flex-1">
         //             <Link to={'/'} className="btn btn-ghost lg:text-xl text-3xl font-bold text-primary"><img src="https://demo.egenslab.com/html/docbase/assets/images/logo-2.png" alt="" /></Link>
         //         </div>
@@ -124,7 +124,7 @@ const Navbar = () => {
         //         </div>
         //     </div>
         // </div>
-        <div className="navbar bg-base-100">
+        <div className="navbar  bg-base-100   fixed z-10 bg-opacity-30 max-w-screen-xl">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -151,7 +151,7 @@ const Navbar = () => {
                         {
                             !user && (
                                 <li>
-                                    <NavLink to={'/login'} className={({ isActive }) => isActive ? 'text-primary font-bold ' : 'font-bold'}>Join US</NavLink>
+                                    <NavLink to={'/login'} className={({ isActive }) => isActive ? 'text-primary font-bold ' : 'font-bold'}>Join Us</NavLink>
                                 </li>
                             )
                         }

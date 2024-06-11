@@ -31,7 +31,7 @@ const Comment = ({postId}) => {
                     </div>
                     {/* <Link to={`/dashboard/allComments/${comment.postId}`} className="btn btn-outline">details</Link> */}
                 </div>)
-            }c
+            }
         </div>
     );
 };

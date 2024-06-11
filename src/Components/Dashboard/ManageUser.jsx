@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { FaSearch } from "react-icons/fa";
 import { RiAdminFill } from "react-icons/ri";
@@ -6,6 +6,9 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 
 const ManageUser = () => {
+    useEffect(() => {
+        document.title = 'Manage User'
+    }, [])
     const axiosSecure = useAxiosSecure();
     const [searchTerm, setSearchTerm] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
