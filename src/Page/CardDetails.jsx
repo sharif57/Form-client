@@ -45,7 +45,7 @@ const CardDetails = () => {
         const newUser = { email, image, name, comment, postId: params.id };
         console.log(newUser);
 
-        fetch('http://localhost:5000/comment', {
+        fetch('https://forum-server-self.vercel.app/comment', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"
@@ -99,7 +99,7 @@ const CardDetails = () => {
 
         setItemVotes(updatedVotes);
 
-        fetch(`http://localhost:5000/post/${items._id}`, {
+        fetch(`https://forum-server-self.vercel.app/post/${items._id}`, {
             method: 'PATCH',
             headers: {
                 "content-type": "application/json"
@@ -121,10 +121,10 @@ const CardDetails = () => {
     };
 
     return (
-        <div className="pt-12">
+        <div className="lg:pt-36 pt-10">
             <a
                 href="#"
-                className="relative block overflow-hidden rounded-lg border border-gray-100 p-4 sm:p-6 lg:p-8"
+                className="relative block overflow-hidden rounded-lg border border-gray-100 bg-fuchsia-50 p-4 sm:p-6 lg:p-8"
             >
                 <span
                     className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"

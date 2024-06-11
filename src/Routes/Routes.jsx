@@ -44,17 +44,17 @@ export const router = createBrowserRouter([
       {
         path: '/post',
         element: <PostData></PostData>,
-        loader: () => fetch('http://localhost:5000/post')
+        loader: () => fetch('https://forum-server-self.vercel.app/post')
       },
       {
         path: '/card/:id',
         element: <PrivateRoutes><CardDetails></CardDetails></PrivateRoutes>,
-        loader: ({ params }) => fetch(`http://localhost:5000/posts/${params.id}`)
+        loader: ({ params }) => fetch(`https://forum-server-self.vercel.app/posts/${params.id}`)
       },
       {
         path: '/comment/:postId',
         element: <Comment></Comment>,
-        loader: ({ params }) => fetch(`http://localhost:5000/comments/${params.postId}`)
+        loader: ({ params }) => fetch(`https://forum-server-self.vercel.app/comments/${params.postId}`)
       },
       {
         path: 'announcement',
@@ -87,7 +87,7 @@ export const router = createBrowserRouter([
       {
         path: 'allComments/:postId',
         element: <UserAllComment></UserAllComment>,
-        loader: ({ params }) => fetch(`http://localhost:5000/comments/${params.postId}`)
+        loader: ({ params }) => fetch(`https://forum-server-self.vercel.app/comments/${params.postId}`)
       }
 
       ,

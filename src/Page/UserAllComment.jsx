@@ -28,7 +28,7 @@ const UserAllComment = () => {
         const ReportPost = { feedback, email };
         console.log(ReportPost);
 
-        fetch('http://localhost:5000/reported', {
+        fetch('https://forum-server-self.vercel.app/reported', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"

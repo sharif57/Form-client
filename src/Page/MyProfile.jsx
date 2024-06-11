@@ -6,7 +6,7 @@ const MyProfile = () => {
     const { user } = useContext(AuthContext)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/post/${user?.email}`)
+        fetch(`https://forum-server-self.vercel.app/post/${user?.email}`)
             .then(res => res.json())
             .then(data => setPosts(data))
     }, [user])
@@ -15,7 +15,7 @@ const MyProfile = () => {
     // console.log(comments);
 
     useEffect(() => {
-        fetch('http://localhost:5000/users')
+        fetch('https://forum-server-self.vercel.app/users')
             .then((res) => res.json())
             .then((data) => setAnnouncements(data));
     }, []);

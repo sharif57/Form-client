@@ -20,7 +20,7 @@ const Dashboard = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/post/${user?.email}`)
+        fetch(`https://forum-server-self.vercel.app/post/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setItems(data);

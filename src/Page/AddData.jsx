@@ -12,7 +12,7 @@ const AddData = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/post/count/${user.email}`)
+            fetch(`https://forum-server-self.vercel.app/post/count/${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                     setPostCount(data.count);
@@ -48,7 +48,7 @@ const AddData = () => {
             time
         };
 
-        fetch('http://localhost:5000/post', {
+        fetch('https://forum-server-self.vercel.app/post', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

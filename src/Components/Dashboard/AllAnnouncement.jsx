@@ -8,7 +8,7 @@ const AllAnnouncement = () => {
     // console.log(comments);
 
     useEffect(() => {
-        fetch('http://localhost:5000/announcement')
+        fetch('https://forum-server-self.vercel.app/announcement')
             .then((res) => res.json())
             .then((data) => setAnnouncements(data));
     }, []);

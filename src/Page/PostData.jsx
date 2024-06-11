@@ -13,7 +13,7 @@
 // //     const { user } = useContext(AuthContext)
 // //     const [posts, setPosts] = useState([])
 // //     useEffect(() => {
-// //         fetch('http://localhost:5000/post')
+// //         fetch('https://forum-server-self.vercel.app/post')
 // //             .then(res => res.json())
 // //             .then(data => setPosts(data))
 // //     }, [])
@@ -120,7 +120,7 @@
 
 
 //   useEffect(() => {
-//     fetch('http://localhost:5000/post')
+//     fetch('https://forum-server-self.vercel.app/post')
 //       .then((res) => res.json())
 //       .then((data) => setPosts(data));
 //   }, []);
@@ -303,7 +303,7 @@ const PostData = ({ postId }) => {
   const postsPerPage = 5;
 
   useEffect(() => {
-    fetch('http://localhost:5000/post')
+    fetch('https://forum-server-self.vercel.app/post')
       .then((res) => res.json())
       .then((data) => setPosts(data));
   }, []);
@@ -394,7 +394,7 @@ const PostData = ({ postId }) => {
           {filteredPosts.reverse().map((post) => (
             <article
               key={post._id}
-              className="rounded-xl bg-white p-4 ring ring-indigo-50 sm:p-6 lg:p-8"
+              className="rounded-xl bg-green-50 shadow-lgc p-4 ring ring-indigo-50 sm:p-6 lg:p-8"
             >
               <div className="flex justify-start gap-4 mb-5">
                 <img className="rounded-full h-12" src={post.authorImage} alt="" />

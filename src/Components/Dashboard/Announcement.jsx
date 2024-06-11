@@ -18,7 +18,7 @@ const Announcement = () => {
         const newPost = { name, image, title, description }
         console.log(newPost);
 
-        fetch('http://localhost:5000/announcement', {
+        fetch('https://forum-server-self.vercel.app/announcement', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"

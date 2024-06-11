@@ -16,7 +16,7 @@ const MyPost = () => {
     const itemsPerPage = 10;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/post/${user?.email}`)
+        fetch(`https://forum-server-self.vercel.app/post/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setItems(data);
@@ -35,7 +35,7 @@ const MyPost = () => {
         })
             .then((result) => {
                 if (result.isConfirmed) {
-                    fetch(`http://localhost:5000/post/${id}`, {
+                    fetch(`https://forum-server-self.vercel.app/post/${id}`, {
                         method: 'DELETE'
                     })
                         .then(res => res.json())

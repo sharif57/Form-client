@@ -9,7 +9,7 @@ const Comment = ({postId}) => {
     // console.log(comments);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/comments/${postId}`)
+        fetch(`https://forum-server-self.vercel.app/comments/${postId}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
