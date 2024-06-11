@@ -7,7 +7,7 @@ const Announcement = () => {
         document.title = 'Announcement'
     }, [])
     const { user } = useContext(AuthContext)
-    const handlePost = (e) => {c
+    const handlePost = (e) => {
         e.preventDefault()
         const form = e.target;
         const name = form.name.value;

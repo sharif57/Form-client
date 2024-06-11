@@ -1,8 +1,8 @@
-# React + Vite
+# My Website
+# My Website
+[Live site]{ https://forum-fb0f7.web.app/ }
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+my features
+Responsive design(Mobile, Laptop/Desktop and all devices) User friendly Build in react js and MERN Stack using Private Routes system using Firebase Authentication system payment system
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Implement of components from the following list: hyperUi, react hook form ,daisy ui , mambaui
